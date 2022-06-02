@@ -4,7 +4,7 @@ import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js";
 import * as dat from "dat.gui";
 import testVertexShader from "./shaders/test/vertex.glsl";
 import testFragmentShader from "./shaders/test/fragment.glsl";
-import flag from './../static/textures/ukraine_flag.jpg'
+import flag from './../static/textures/pngwing.png'
 
 /**
  * Base
@@ -17,6 +17,7 @@ const canvas = document.querySelector("canvas.webgl");
 
 // Scene
 const scene = new THREE.Scene();
+// scene.background = new THREE.Color(0xffffff);
 
 /**
  * Textures
@@ -43,7 +44,7 @@ const material = new THREE.ShaderMaterial({
     vertexShader: testVertexShader,
     fragmentShader: testFragmentShader,
     // wireframe: true,
-    // side: THREE.DoubleSide,
+    side: THREE.DoubleSide,
     // transparent: true,
     uniforms: {
         uFrequency: {value: new THREE.Vector3(10, 5)},
@@ -116,11 +117,11 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 const clock = new THREE.Clock();
 
 const tick = () => {
-    const elapsedTime = clock.getElapsedTime();
+    // const elapsedTime = clock.getElapsedTime();
 
     // update material
 
-    material.uniforms.uTime.value = elapsedTime
+    material.uniforms.uTime.value = clock.getElapsedTime();
 
     // Update controls
     controls.update();
