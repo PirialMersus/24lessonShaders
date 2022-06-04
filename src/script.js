@@ -4,7 +4,7 @@ import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js";
 import * as dat from "dat.gui";
 import testVertexShader from "./shaders/test/vertex.glsl";
 import testFragmentShader from "./shaders/test/fragment.glsl";
-import flag from './../static/textures/pngwing.png'
+import flag from './../static/textures/ukraine_flag.jpg'
 
 /**
  * Base
